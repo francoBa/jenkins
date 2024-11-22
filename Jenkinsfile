@@ -20,4 +20,14 @@ pipeline {
       }
     }
   }
+
+  post {
+    success {
+      slackSend(channel: '#tutorial', message: "Todo bien")
+    }
+
+    failure {
+      slackSend(channel: '#tutorial', message: "Algo anda mal")
+    }
+  }
 }
