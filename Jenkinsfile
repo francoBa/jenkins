@@ -16,7 +16,7 @@ pipeline {
 
     stage('Run test') {
       steps {
-        sh 'docker run jenkins-laravel ./vendor/bin/phpunit tests'
+        sh 'docker run --rm jenkins-laravel ./vendor/bin/phpunit tests'
       }
     }
   }
