@@ -8,6 +8,16 @@ pipeline {
       }
     }
 
+    stage('Sonarqube') {
+      steps {
+        scripts {
+          docker.image('sonarsource/sonar-scanner-cli').inside('--network ci-network') {
+            sh 'sonar-scanner'
+          }
+        }
+      }
+    }
+
     // stage('Docker build') {
     //   steps {
     //     sh 'docker build -t jenkins-laravel .'
