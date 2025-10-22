@@ -1,8 +1,10 @@
-version: '3.7'
-
 services:
   jenkins:
-    build: .
+    build:
+      context: .
+      args:
+        # Esta variable se leerá automáticamente del archivo .env
+        DOCKER_GID: ${DOCKER_GID}
     container_name: jenkins
     networks:
       - ci-network
@@ -13,6 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   sonarqube:
+    # Se cambia la imagen a una compatible con ARM64 (Raspberry Pi)
     image: sonarqube:latest
     container_name: sonarqube
     networks:
@@ -28,4 +31,3 @@ volumes:
 
 networks:
   ci-network:
-    external: true
