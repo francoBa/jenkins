@@ -1,6 +1,6 @@
 pipeline {
   // agent { label 'agente1' }
-  agent { any }
+  agent any
 
   stages {
     stage('Verificar Docker') {
