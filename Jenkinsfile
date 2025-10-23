@@ -19,11 +19,11 @@ pipeline {
     //   }
     // }
 
-    // stage('Docker build') {
-    //   steps {
-    //     sh 'docker build -t jenkins-laravel .'
-    //   }
-    // }
+    stage('Docker build') {
+      steps {
+        sh 'docker build -t jenkins-laravel .'
+      }
+    }
 
     // stage('Run test') {
     //   steps {
